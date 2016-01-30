@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AIBotBehaviour : AIBehaviour {
 
-
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Resource") 
 		{
@@ -18,7 +17,11 @@ public class AIBotBehaviour : AIBehaviour {
 		if (other == mainBaseCol && goToBase == true) 
 		{
 			goToBase = false;
-			meatMag.AddSomeMeatToSecondPlayer();
+			if (playerNo == 2) {
+				meatMag.AddSomeMeatToSecondPlayer ();
+			} else {
+				meatMag.AddSomeMeatToThirdPlayer ();
+			}
 			SetDestinationCollider();
 		}
 

@@ -6,6 +6,7 @@ public class AIBehaviour : MonoBehaviour {
 
 	public bool ritualState = false;
 	protected bool goToBase = false;
+	public int playerNo;
 
 	public float helpForSpeed;
 	public float slowFastTime = 5f;
@@ -52,7 +53,6 @@ public class AIBehaviour : MonoBehaviour {
 		if (resources.Count == 0) {
 			currentDestination = destination;
 		} else {
-            Debug.Log("TUTAJ, KURWA");
 			int i = Random.Range (0, resources.Count - 1);
 			currentDestination = resources [i];
 		}

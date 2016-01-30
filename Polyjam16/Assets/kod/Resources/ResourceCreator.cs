@@ -7,7 +7,7 @@ public class ResourceCreator : MonoBehaviour {
 	const float MAPSIZE = 4.0f;
 	const int WAITTIME = 10;
 	public int timer = 0;
-	const int MAXRESOURCES = 10;
+	const int MAXRESOURCES = 20;
 	public GameObject pref;
 	public static List<GameObject> resources = new List<GameObject>();
 

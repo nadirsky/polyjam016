@@ -7,9 +7,11 @@ public class MeatStock : MonoBehaviour {
 
 	float firstPlayerTime = 1f;
 	float secondPlayerTime = 1f;
+	float thirdPlayerTime = 1f;
 
 	float firstTime = 0;
 	float secondTime = 0;
+	float thirdTime = 0;
 
 	public HumanInstantiator[] playerInstantiator;
 
@@ -22,14 +24,15 @@ public class MeatStock : MonoBehaviour {
 
 	public int meatAdd = 1;
 	public int productionMeatCost = 3;
-	public int meatPoints = 3;
+	public int meatPoints = 9;
 
-	public int secondPlayerMeat = 3;
+	public int secondPlayerMeat = 9;
+	public int thirdPlayerMeat = 9;
 
 
 
 	void Awake () {
-		if (playerInstantiator.Length == 0 || playerInstantiator.Length != 2) 
+		if (playerInstantiator.Length == 0 || playerInstantiator.Length != 3) 
 		{
 			Debug.LogError ("Dupa");
 			return;
@@ -78,6 +81,21 @@ public class MeatStock : MonoBehaviour {
 		}
 	}
 
+	void CreateThirdPlayerHuman()
+	{
+		if(thirdPlayerMeat >= productionMeatCost)
+		{
+			if(playerInstantiator [2].InstantiatePlayer ())
+
+			{
+
+				thirdPlayerMeat -= productionMeatCost;
+
+			}
+			//manaText.text = meatPoints.ToString ();
+		}
+	}
+
 
 	public virtual void AddSomeMeat()
 	{
@@ -89,8 +107,11 @@ public class MeatStock : MonoBehaviour {
 	public void AddSomeMeatToSecondPlayer()
 	{
 		secondPlayerMeat += meatAdd;
+	}
 
-
+	public void AddSomeMeatToThirdPlayer()
+	{
+		thirdPlayerMeat += meatAdd;
 	}
 
 	void Update()
@@ -104,8 +125,8 @@ public class MeatStock : MonoBehaviour {
 				
 				//ManaStock.instance.GenerateMana(aiBehaviourList.Count);
 
-			meatPoints += meatGenerateAmount;
-			secondPlayerMeat += meatGenerateAmount;
+			//meatPoints += meatGenerateAmount;
+			//secondPlayerMeat += meatGenerateAmount;
 				
 
 
@@ -116,6 +137,7 @@ public class MeatStock : MonoBehaviour {
 	{
 		firstTime += Time.deltaTime;
 		secondTime += Time.deltaTime;
+		thirdTime += Time.deltaTime;
 
 
 
@@ -129,6 +151,12 @@ public class MeatStock : MonoBehaviour {
 		{
 			CreateSecondPlayerHuman ();
 			secondTime = secondTime - secondPlayerTime;
+		}
+		if(thirdTime >= thirdPlayerTime)
+		{
+			Debug.Log ("THIRD CREATE");
+			CreateThirdPlayerHuman ();
+			thirdTime = thirdTime - thirdPlayerTime;
 		}
 
 	}

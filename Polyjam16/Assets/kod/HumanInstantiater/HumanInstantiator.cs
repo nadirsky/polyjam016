@@ -8,6 +8,7 @@ public class HumanInstantiator : MonoBehaviour {
 	public int maxHumans = 20;
 
 	public int maxPlayersToAttack = 10;
+	public int playerNo;
 
 	public GameObject humanToInstantiate;
 	public Transform spawnPoint;
@@ -26,6 +27,7 @@ public class HumanInstantiator : MonoBehaviour {
 		{
 			AIBehaviour ob = Instantiate(humanToInstantiate).GetComponent<AIBehaviour>();
 			ob.InitGame (destinationToSet, mainBaseToSet);
+			ob.playerNo = playerNo;
 
 			humans.Add(ob);
 			ob.gameObject.SetActive(false);
