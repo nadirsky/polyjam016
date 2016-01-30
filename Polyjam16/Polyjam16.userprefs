@@ -1,0 +1,41 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\kod\Spells\Spell.cs">
+    <Files>
+      <File FileName="Assets\kod\Ritual\RitualScript.cs" Line="9" Column="1" />
+      <File FileName="Assets\kod\AI\AIBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\kod\AI\AIBotBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\kod\MeatStock.cs" Line="94" Column="14" />
+      <File FileName="Assets\kod\Czar.cs" Line="1" Column="1" />
+      <File FileName="Assets\kod\HumanInstantiater\HumanInstantiator.cs" Line="1" Column="1" />
+      <File FileName="Assets\AntBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\kod\Mana\ManaStock.cs" Line="40" Column="5" />
+      <File FileName="Assets\kod\Mana\SpellCaster.cs" Line="25" Column="50" />
+      <File FileName="Assets\kod\Spells\Spell.cs" Line="40" Column="24" />
+      <File FileName="Assets\kod\Spells\DamageSpell.cs" Line="24" Column="5" />
+      <File FileName="Assets\kod\Spells\GrowthPlantsSpell.cs" Line="15" Column="16" />
+      <File FileName="Assets\kod\Spells\SlowDownSpell.cs" Line="15" Column="16" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="kod" expanded="True">
+              <Node name="AI" expanded="True" />
+              <Node name="HumanInstantiater" expanded="True" />
+              <Node name="Mana" expanded="True" />
+              <Node name="Ritual" expanded="True" />
+              <Node name="Spells" expanded="True">
+                <Node name="Spell.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
