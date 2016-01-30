@@ -44,6 +44,13 @@ public class AIBehaviour : MonoBehaviour {
 		ritualState = false;
 	}
 
+	public void SetStartPostion(Vector3 posit)
+	{
+		this.transform.position = posit;
+		ritualState = false;
+		goToBase = false;
+	}
+
 	void SetColliders()
 	{
 		meatMag = MeatStock.instance;
