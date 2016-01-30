@@ -1,0 +1,30 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\kod\AI\AIBehaviour.cs">
+    <Files>
+      <File FileName="Assets\kod\AI\AIBehaviour.cs" Line="26" Column="22" />
+      <File FileName="Assets\kod\AI\AIBotBehaviour.cs" Line="30" Column="4" />
+      <File FileName="Assets\kod\MeatStock.cs" Line="7" Column="25" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="kod" expanded="True">
+              <Node name="AI" expanded="True">
+                <Node name="AIBehaviour.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="D:\projects\New Unity Project\Assets\kod\GameManager.cs" line="3" />
+      <Breakpoint file="D:\projects\New Unity Project\Assets\kod\GameManager.cs" line="16" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
