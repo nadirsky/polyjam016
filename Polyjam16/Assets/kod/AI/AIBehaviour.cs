@@ -3,13 +3,14 @@ using System.Collections;
 
 public class AIBehaviour : MonoBehaviour {
 
+	public bool ritualState = false;
 	protected bool goToBase = false;
 
 	public float speed = 3f;
 
 	public Rigidbody2D rig2d;
 
-	public string DestinationTag;
+	public string DestinationTag = "Finish";
 	public string EndTag = "EndGame";
 
 	public Transform destination;
@@ -20,68 +21,71 @@ public class AIBehaviour : MonoBehaviour {
 
 	protected MeatStock meatMag;
 
-	// Use this for initialization
+	public void InitGame(Transform dest, Transform mainBase2)
+	{
+		destination = dest;
+		//Debug.Log (dest.name);
+
+		mainBase = mainBase2;
+		//Debug.Log (mainBase.name);
+
+		SetColliders ();
+	}
+	
 	void Start () {
 
+
+		SetColliders ();
+
+	}
+
+	public void BreakRitual()
+	{
+		ritualState = false;
+	}
+
+	void SetColliders()
+	{
 		meatMag = MeatStock.instance;
+
 		destinationCol = destination.GetComponent<Collider2D> ();
 		mainBaseCol = mainBase.GetComponent<Collider2D> ();
-		//rig2d.velocity = (destination.position - this.transform.position).normalized;
-
-
-	
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag (DestinationTag)) 
 		{
-			//Debug.Log("Dupa");
 			goToBase = true;
-
-			//rig2d.velocity = Vector3.zero;
-
-		}
-
-		if (other.CompareTag (DestinationTag)) 
-		{
-			//Debug.Log("Dupa");
-			goToBase = true;
-			
-			//rig2d.velocity = Vector3.zero;
-			
 		}
 
 		if (other == mainBaseCol && goToBase == true) 
 		{
 			goToBase = false;
-			meatMag.DoladujMane();
-			//rig2d.velocity = Vector3.zero;
+			meatMag.AddSomeMeat();
 
+			if(RitualScript.instance.GetPlayerRitual)
+			{
+				RitualScript.instance.AdAibehaviourToList(this);
+				ritualState = true;
+			}
 
 		}
 
-		//if (other.CompareTag (DestinationTag))
-		//goToBase = true;
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-	
-	}
 
 	void FixedUpdate()
 	{
-		if (goToBase) {
+		if (ritualState) 
+		{
+			rig2d.velocity = Vector2.zero;
+			return;
+		}
+		if (goToBase) 
+		{
 			rig2d.velocity = (mainBase.position - this.transform.position).normalized * speed;
 		}
 		else
 			rig2d.velocity = (destination.position - this.transform.position).normalized * speed;
-		//if(goToBase)
-
-		//rig2d.velocity = (mainBase.position - this.transform.position).normalized;
-		//else
-			//rig2d.velocity = (destination.position - this.transform.position).normalized;
-
 	}
 }
