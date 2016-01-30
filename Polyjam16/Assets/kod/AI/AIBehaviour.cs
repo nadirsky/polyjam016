@@ -7,6 +7,11 @@ public class AIBehaviour : MonoBehaviour {
 	public bool ritualState = false;
 	protected bool goToBase = false;
 
+	public float helpForSpeed;
+	public float slowFastTime = 5f;
+	public float slowFastTimeProgress = 0;
+	protected bool slowFast = false;
+
 	public float speed = 3f;
 
 	public Rigidbody2D rig2d;
@@ -47,6 +52,7 @@ public class AIBehaviour : MonoBehaviour {
 		if (resources.Count == 0) {
 			currentDestination = destination;
 		} else {
+            Debug.Log("TUTAJ, KURWA");
 			int i = Random.Range (0, resources.Count - 1);
 			currentDestination = resources [i];
 		}
@@ -95,25 +101,86 @@ public class AIBehaviour : MonoBehaviour {
 
 	}
 
-	public void MakeFaster(float f){
+//	public void MakeFaster(float f){
+//
+//	}
+//
+//	public void SlowDown(float f){
+//
+//	}
+//
+//
+//	void FixedUpdate()
+//	{
+//		if (ritualState) 
+//		{
+//			rig2d.velocity = Vector2.zero;
+//			return;
+//		}
+//		if (goToBase) 
+//		{
+//			rig2d.velocity = (mainBase.transform.position - this.transform.position).normalized * speed;
+//		}
+//		else
+//			rig2d.velocity = (currentDestination.transform.position - this.transform.position).normalized * speed;
+//	}
+
+	
+	public void SlowDown(float amount)
+	{
+		helpForSpeed = speed * amount;
+		slowFast = true;
 	}
-
-	public void SlowDown(float f){
+	
+	public void MakeFaster(float amount)
+	{
+		helpForSpeed = speed / amount;
+		slowFast = true;
 	}
-
-
+	
 	void FixedUpdate()
 	{
+		
+		if (slowFast) 
+		{
+			slowFastTimeProgress+=Time.deltaTime;
+			
+			if(slowFastTimeProgress >= slowFastTime)
+			{
+				slowFast = false;
+				slowFastTimeProgress = 0;
+			}
+		}
+		
 		if (ritualState) 
 		{
 			rig2d.velocity = Vector2.zero;
 			return;
 		}
-		if (goToBase) 
-		{
+		if (goToBase) {
+			
+			if(slowFast)
+			{
+				rig2d.velocity = (mainBase.transform.position - this.transform.position).normalized * helpForSpeed;
+				return;
+			}
+			//this.transform.Translate((mainBase.transform.position - this.transform.position).normalized * speed);
 			rig2d.velocity = (mainBase.transform.position - this.transform.position).normalized * speed;
-		}
-		else
+			//Debug.Log ("Ruszam do bazy");
+			//rig2d.AddForce((mainBase.position - this.transform.position).normalized * speed);
+		} else {
+			
+			if(slowFast)
+			{
+				rig2d.velocity = (currentDestination.transform.position - this.transform.position).normalized * helpForSpeed;
+				return;
+			}
+			//this.transform.Translate((destination.transform.position - this.transform.position).normalized * speed);
 			rig2d.velocity = (currentDestination.transform.position - this.transform.position).normalized * speed;
+			//Debug.Log ("Ruszam do czegos");
+		}
+		
+		//Debug.Log (destination.transform.position + " cos");
+		//rig2d.AddForce((destination.position - this.transform.position).normalized * speed);
 	}
 }
