@@ -8,9 +8,11 @@ public class AIAttack: MonoBehaviour {
 
 		void OnTriggerEnter2D(Collider2D other) 
 		{
+		    Debug.Log ("Other = " + other.tag + "  optag=" + oponentTag);
 			if (other.tag == oponentTag) 
 			{
 				this.gameObject.SetActive(false);
+			other.gameObject.SetActive (false);
 			}
 		}
 		
