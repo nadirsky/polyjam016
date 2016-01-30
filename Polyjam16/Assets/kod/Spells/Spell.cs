@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public abstract class Spell : MonoBehaviour {
 
+	public string playerTagToCompare = "Player";
+	public string compTagToCompare = "GameController";
+
 	public static Image mouseCursor;
 	public Sprite cursorSprite;
 	public int cost = 10;

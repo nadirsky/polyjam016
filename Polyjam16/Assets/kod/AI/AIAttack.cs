@@ -1,14 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class AIAttack: MonoBehaviour {
 
-	public string oponnentTag = "Player";
+	public string oponentTag = "Player";
 
-//
-//	void OnTriggerEnter2D(Collider2D other) {
-//
-//		}
+
+		void OnTriggerEnter2D(Collider2D other) 
+		{
+			if (other.tag == oponentTag) 
+			{
+				this.gameObject.SetActive(false);
+			}
+		}
 		
+	}
+
+//	void OnEnable()
+//	{
+//
 //	}
-}
+//}

@@ -4,6 +4,13 @@ using UnityEngine.UI;
 
 public class MeatStock : MonoBehaviour {
 
+
+	float firstPlayerTime = 1f;
+	float secondPlayerTime = 1f;
+
+	float firstTime = 0;
+	float secondTime = 0;
+
 	public HumanInstantiator[] playerInstantiator;
 
 	public float timeToGenerate = 1f;
@@ -15,9 +22,9 @@ public class MeatStock : MonoBehaviour {
 
 	public int meatAdd = 1;
 	public int productionMeatCost = 3;
-	public int meatPoints;
+	public int meatPoints = 3;
 
-	public int secondPlayerMeat;
+	public int secondPlayerMeat = 3;
 
 
 
@@ -42,11 +49,14 @@ public class MeatStock : MonoBehaviour {
 
 		if(meatPoints >= productionMeatCost)
 		{
-			playerInstantiator [0].InstantiatePlayer ();
+			if(playerInstantiator [0].InstantiatePlayer ())
 
-			meatPoints -= productionMeatCost;
+			
+			{
+				meatPoints -= productionMeatCost;
 
-			manaText.text = meatPoints.ToString ();
+				manaText.text = meatPoints.ToString ();
+			}
 		}
 
 
@@ -57,10 +67,13 @@ public class MeatStock : MonoBehaviour {
 	{
 		if(secondPlayerMeat >= productionMeatCost)
 		{
-			playerInstantiator [1].InstantiatePlayer ();
+			if(playerInstantiator [1].InstantiatePlayer ())
 			
-			secondPlayerMeat -= productionMeatCost;
+			{
+
+				secondPlayerMeat -= productionMeatCost;
 			
+			}
 			//manaText.text = meatPoints.ToString ();
 		}
 	}
@@ -69,7 +82,7 @@ public class MeatStock : MonoBehaviour {
 	public virtual void AddSomeMeat()
 	{
 		meatPoints += meatAdd;
-		CreateFirstPlayerHuman ();
+
 		manaText.text = meatPoints.ToString ();
 	}
 
@@ -77,7 +90,7 @@ public class MeatStock : MonoBehaviour {
 	{
 		secondPlayerMeat += meatAdd;
 
-		CreateSecondPlayerHuman ();
+
 	}
 
 	void Update()
@@ -94,6 +107,29 @@ public class MeatStock : MonoBehaviour {
 			meatPoints += meatGenerateAmount;
 			secondPlayerMeat += meatGenerateAmount;
 				
+
+
 			}
+	}
+
+	void FixedUpdate()
+	{
+		firstTime += Time.deltaTime;
+		secondTime += Time.deltaTime;
+
+
+
+		if (firstTime >= firstPlayerTime) 
+		{
+			CreateFirstPlayerHuman ();
+
+			firstTime = firstTime - firstPlayerTime;
+		}
+		if(secondTime >= secondPlayerTime)
+		{
+			CreateSecondPlayerHuman ();
+			secondTime = secondTime - secondPlayerTime;
+		}
+
 	}
 }

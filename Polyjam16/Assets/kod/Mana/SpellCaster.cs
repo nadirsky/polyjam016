@@ -41,9 +41,9 @@ public class SpellCaster : MonoBehaviour {
 		if (ErrorCheck (number))
 			return;
 
-		Debug.Log (spell.Length + " a numer " + number);
+		//Debug.Log (spell.Length + " a numer " + number);
 
-		Debug.Log (ManaStock.instance.Mana.ToString ());
+		//Debug.Log (ManaStock.instance.Mana.ToString ());
 
 		if (ManaStock.instance.Mana >= spell[number].cost) 
 		{
