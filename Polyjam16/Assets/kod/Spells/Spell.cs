@@ -40,6 +40,7 @@ public abstract class Spell : MonoBehaviour {
 
 		//Debug.Log (helpVec);
 		particleSystem.transform.position = helpVec;
+        particleSystem.Simulate(0.5f);
 		particleSystem.Play();
 
 		Cursor.visible = true;
