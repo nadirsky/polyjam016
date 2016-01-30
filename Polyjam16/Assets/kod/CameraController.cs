@@ -15,12 +15,12 @@ public class CameraController : MonoBehaviour {
 	void Start ()
     {
         lastMousePos = Input.mousePosition;
-        CameraContainer.transform.position = new Vector3(0,0, (sizeMin + sizeMax) / 2);
+        CameraContainer.transform.position = new Vector3(0,0, -(sizeMin + sizeMax) / 2);
     }
 
     void Update()
     {
-        move = new Vector3((Input.mousePosition.x - lastMousePos.x)*movingSpeed, (Input.mousePosition.y - lastMousePos.y)*movingSpeed, Input.mouseScrollDelta.y*zoomingSpeed);
+        move = new Vector3((Input.mousePosition.x - lastMousePos.x)*movingSpeed, (Input.mousePosition.y - lastMousePos.y)*movingSpeed, -Input.mouseScrollDelta.y*zoomingSpeed);
         move *= CameraContainer.transform.position.y;
         if (!Input.GetMouseButton(1))
         {
