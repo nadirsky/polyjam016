@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{A09926DB-7D60-F927-FC95-FC9FCB284826}") = "Polyjam16", "Assembly-CSharp-firstpass.csproj", "{3ACD1EB7-7085-98EB-36F7-2E4CD074648F}"
+EndProject
 Project("{A09926DB-7D60-F927-FC95-FC9FCB284826}") = "Polyjam16", "Assembly-CSharp.csproj", "{33741434-E6E9-7671-963D-6648D254775D}"
 EndProject
 Project("{A09926DB-7D60-F927-FC95-FC9FCB284826}") = "Polyjam16", "Assembly-CSharp-Editor.csproj", "{1EDD4C13-2C2D-ABA9-54E0-3F1F7F61180C}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3ACD1EB7-7085-98EB-36F7-2E4CD074648F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACD1EB7-7085-98EB-36F7-2E4CD074648F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACD1EB7-7085-98EB-36F7-2E4CD074648F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACD1EB7-7085-98EB-36F7-2E4CD074648F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{33741434-E6E9-7671-963D-6648D254775D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33741434-E6E9-7671-963D-6648D254775D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33741434-E6E9-7671-963D-6648D254775D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																			GlobalSection(MonoDevelopProperties) = preSolution
+																																						GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

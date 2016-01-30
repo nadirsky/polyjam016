@@ -48,21 +48,32 @@
      <Compile Include="Assets\AntBehaviour.cs" />
      <Compile Include="Assets\kod\AI\AIBehaviour.cs" />
      <Compile Include="Assets\kod\AI\AIBotBehaviour.cs" />
+     <Compile Include="Assets\kod\AI\ManaGiver.cs" />
      <Compile Include="Assets\kod\Czar.cs" />
+     <Compile Include="Assets\kod\CzaryMaryMenager.cs" />
+     <Compile Include="Assets\kod\GameManager.cs" />
      <Compile Include="Assets\kod\HumanInstantiater\HumanInstantiator.cs" />
      <Compile Include="Assets\kod\Mana\ManaStock.cs" />
      <Compile Include="Assets\kod\Mana\SpellCaster.cs" />
      <Compile Include="Assets\kod\MeatStock.cs" />
+     <Compile Include="Assets\kod\NewBehaviourScript.cs" />
      <Compile Include="Assets\kod\Ritual\RitualScript.cs" />
      <Compile Include="Assets\kod\Spells\DamageSpell.cs" />
      <Compile Include="Assets\kod\Spells\GrowthPlantsSpell.cs" />
      <Compile Include="Assets\kod\Spells\SlowDownSpell.cs" />
      <Compile Include="Assets\kod\Spells\Spell.cs" />
+     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>D:/programy/unity 5_24/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/programy/unity 5_24/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>D:/programy/unity 5_24/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>D:/programy/unity 5_24/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>D:/programy/unity 5_24/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
