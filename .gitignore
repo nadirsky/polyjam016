@@ -36,3 +36,4 @@ Polyjam16/Assembly-CSharp.csproj
 Polyjam16/Assembly-CSharp-Editor.csproj
 Polyjam16/Assembly-CSharp-firstpass.csproj
 Polyjam16/Polyjam16.sln
+*.csproj
