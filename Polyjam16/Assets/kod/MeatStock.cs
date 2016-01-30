@@ -32,7 +32,7 @@ public class MeatStock : MonoBehaviour {
 
 
 	void Awake () {
-		if (playerInstantiator.Length == 0 || playerInstantiator.Length != 3) 
+		if (playerInstantiator.Length == 0 || playerInstantiator.Length > 3) 
 		{
 			Debug.LogError ("Dupa");
 			return;
@@ -152,9 +152,8 @@ public class MeatStock : MonoBehaviour {
 			CreateSecondPlayerHuman ();
 			secondTime = secondTime - secondPlayerTime;
 		}
-		if(thirdTime >= thirdPlayerTime)
+		if(thirdTime >= thirdPlayerTime && playerInstantiator.Length > 2)
 		{
-			Debug.Log ("THIRD CREATE");
 			CreateThirdPlayerHuman ();
 			thirdTime = thirdTime - thirdPlayerTime;
 		}
