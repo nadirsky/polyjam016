@@ -6,7 +6,7 @@ public class ManaStock : MonoBehaviour {
 
 	static public ManaStock instance = null;
 	public Text manaText;
-	int mana = 200;
+	public int mana = 200;
 
 	public int Mana
 	{

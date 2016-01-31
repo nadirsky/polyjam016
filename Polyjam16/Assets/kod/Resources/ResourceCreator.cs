@@ -32,7 +32,7 @@ public class ResourceCreator : MonoBehaviour {
 
         do
         {
-            vec = new Vector3(Random.Range(-MAPSIZE, MAPSIZE), Random.Range(-MAPSIZEHeight, MAPSIZEHeight+1), 0); ;
+            vec = new Vector3(Random.Range(-MAPSIZE, MAPSIZE), Random.Range(-MAPSIZEHeight, MAPSIZEHeight)+1, 0); ;
         }
         while (DistanceCheck(vec));
 

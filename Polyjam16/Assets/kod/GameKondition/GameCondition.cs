@@ -94,7 +94,7 @@ public class GameCondition : MonoBehaviour {
 	void ContinoueAction()
 	{
 
-        Time.timeScale = 1;
+       // Time.timeScale = 1;
         SceneManager.LoadScene(0);
 		//Application.LoadLevel (0);
 	}
@@ -102,7 +102,7 @@ public class GameCondition : MonoBehaviour {
 	void RetryBtnAction()
 	{
 
-        Time.timeScale = 1;
+      //  Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 
         //SceneManager.LoadScene()
@@ -148,12 +148,12 @@ public class GameCondition : MonoBehaviour {
         {
             if (meatStock.EmptyStock())
             {
-                Time.timeScale = 0;
+                //Time.timeScale = 0;
                 victoryPanel.SetActive(true);
                 victoryText.text = "You lose";
                 // PlayerPrefs.SetInt("level" + levelToUnlock, 2);
 
-                endGame = true;
+               // endGame = true;
             }
 
         }
@@ -169,12 +169,12 @@ public class GameCondition : MonoBehaviour {
 	// Update is called once per frame
     void WinMatch()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         victoryPanel.SetActive(true);
         victoryText.text = "Victory";
         PlayerPrefs.SetInt("level" + levelToUnlock, 2);
 
-        endGame = true;
+       // endGame = true;
 
         if (nextLevel < 1000)
         {
@@ -186,6 +186,8 @@ public class GameCondition : MonoBehaviour {
 
 	void Update () {
 
+        
+
         if (!endGame)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -193,12 +195,12 @@ public class GameCondition : MonoBehaviour {
                 if (!victoryPanel.activeSelf)
                 {
                     victoryPanel.SetActive(true);
-                    Time.timeScale = 0;
+                    //Time.timeScale = 0;
                 }
                 else
                 {
                     victoryPanel.SetActive(false);
-                    Time.timeScale = 1;
+                   // Time.timeScale = 1;
                 }
             }
         }
