@@ -135,11 +135,11 @@ public class GameCondition : MonoBehaviour {
         timeToCheck = 0;
 		humanCountText.text = players + "/" + victoryPopulation;
 
-		if (players > victoryPopulation) 
+		/*if (players > victoryPopulation) 
 		{
             WinMatch();
 			//Debug.Log("Victory");
-		}
+		}*/
 
         AudioSoundBeeper(players);
 
