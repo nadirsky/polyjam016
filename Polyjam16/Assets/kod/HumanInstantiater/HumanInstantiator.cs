@@ -7,8 +7,9 @@ public class HumanInstantiator : MonoBehaviour {
 	List<AIBehaviour> humans = new List<AIBehaviour>();
 	public int maxHumans = 20;
 
+	public int currentActiveHumans;
+
 	public int maxPlayersToAttack = 10;
-	public int playerNo;
 
 	public GameObject humanToInstantiate;
 	public Transform spawnPoint;
@@ -18,16 +19,25 @@ public class HumanInstantiator : MonoBehaviour {
 
 	public GameObject oponentBase;
 
+	public GameCondition gameCondition = null;
 
+    public int CurrentActiveHuman
+    {
+
+        get
+        {
+
+            return currentActiveHumans;
+        }
+    }
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
 	
 		for (int i =0; i<maxHumans; i++) 
 		{
 			AIBehaviour ob = Instantiate(humanToInstantiate).GetComponent<AIBehaviour>();
 			ob.InitGame (destinationToSet, mainBaseToSet);
-			ob.playerNo = playerNo;
 
 			humans.Add(ob);
 			ob.gameObject.SetActive(false);
@@ -50,9 +60,13 @@ public class HumanInstantiator : MonoBehaviour {
 				humans[i].SetStartPostion(spawnPoint.position);
 				humans[i].InitGame(destinationToSet, mainBaseToSet);
 				humans[i].gameObject.SetActive(true);
+				CountHumans();
 				return true;
 			}
+
+
 		}
+		CountHumans ();
 		SetAttack ();
 		return false;
 
@@ -60,6 +74,32 @@ public class HumanInstantiator : MonoBehaviour {
 
 
 
+	}
+
+    public void ExecuteCount()
+    {
+        CountHumans();
+    }
+
+	void CountHumans()
+	{
+		currentActiveHumans = 0;
+
+		for (int i =0; i<humans.Count; i++) 
+		{
+			if (humans [i].gameObject.activeSelf) {
+				//Debug.Log("Dupa");
+				currentActiveHumans++;
+			}
+		}
+
+		//Debug.Log ("Licze ludzi");
+		//currentActiveHumans;
+
+		//GameCondition.humansCount = currentActiveHumans;
+		if (gameCondition != null) {
+			gameCondition.UpdatePlayer(currentActiveHumans);
+		}
 	}
 
 

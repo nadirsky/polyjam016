@@ -29,7 +29,14 @@ public class MeatStock : MonoBehaviour {
 	public int secondPlayerMeat = 9;
 	public int thirdPlayerMeat = 9;
 
+    public bool EmptyStock()
+    {
+        if (meatPoints < productionMeatCost)
+            return true;
 
+        return false;
+
+    }
 
 	void Awake () {
 		if (playerInstantiator.Length == 0 || playerInstantiator.Length > 3) 

@@ -13,7 +13,7 @@ public class Resource : MonoBehaviour {
 	}
 		
 	public void Reset(){
-		this.transform.position = ResourceCreator.CreateResPos ();
+		this.transform.position = ResourceCreator.instance.CreateResPos2 ();
 	}
 
 	/*void OnTriggerEnter2D(Collider2D other) {

@@ -7,7 +7,7 @@ public class AIBotBehaviour : AIBehaviour {
 		if (other.tag == "Resource") 
 		{
 			goToBase = true;
-			other.gameObject.transform.position = ResourceCreator.CreateResPos ();
+			other.gameObject.transform.position = ResourceCreator.instance.CreateResPos2 ();
 		}
 		if (other.tag == "Finish") 
 		{

@@ -49,7 +49,7 @@ public class AIBehaviour : MonoBehaviour {
 	}
 
 	public void SetDestinationCollider(){
-		List<GameObject> resources = ResourceCreator.resources;
+		List<GameObject> resources = ResourceCreator.instance.resources;
 		if (resources.Count == 0) {
 			currentDestination = destination;
 		} else {
@@ -64,6 +64,7 @@ public class AIBehaviour : MonoBehaviour {
 		this.transform.position = posit;
 		ritualState = false;
 		goToBase = false;
+
 	}
 
 	void SetColliders()
@@ -78,7 +79,7 @@ public class AIBehaviour : MonoBehaviour {
 		if (other.tag == "Resource") 
 		{
 			goToBase = true;
-			other.gameObject.transform.position = ResourceCreator.CreateResPos ();
+			other.gameObject.transform.position = ResourceCreator.instance.CreateResPos2 ();
 		}
 		if (other.tag == "Finish") 
 		{

@@ -32,6 +32,7 @@ public class BonusGiver : MonoBehaviour {
 		}
 
 		Debug.Log(humnaInstantiator.Length.ToString());
+        Debug.Log(aiBonusBehaviourList.Count.ToString());
 
 	}
 
