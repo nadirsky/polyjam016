@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class RitualScript : MonoBehaviour {
 
+	AudioSource audiosource;
+	//AudioClip audioClip;
+
 	static public RitualScript instance;
 	public float timeToGenerate = 1f;
 	public float timerek = 0;
@@ -39,6 +42,9 @@ public class RitualScript : MonoBehaviour {
 
 		instance = this;
 
+		audiosource = GetComponent<AudioSource> ();
+
+
 		ritualEnableBtn.onClick.AddListener (SetupRitual);
 		ritualDisableBtn.onClick.AddListener (DisableRitual);
 
@@ -56,13 +62,27 @@ public class RitualScript : MonoBehaviour {
 
 	public void SetupRitual()
 	{
+		audiosource.Play ();
+		audiosource.loop = true;
+
 		ritualEnableBtn.gameObject.SetActive (false);
 		ritualDisableBtn.gameObject.SetActive (true);
 		firstPlayerRitual = true;
 	}
 
+//	IEnumerator soundDecrease()
+//	{
+//		
+//	}
+//
+//	void AudiosourceVolumeDecrease()
+//	{
+//		audiosource.volume
+//	}
+
 	public void DisableRitual()
 	{
+		audiosource.Stop();
 		ritualEnableBtn.gameObject.SetActive (true);
 		ritualDisableBtn.gameObject.SetActive (false);
 		RemoveAiFromRitual ();
