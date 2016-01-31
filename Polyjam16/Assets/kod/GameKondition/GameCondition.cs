@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 public class GameCondition : MonoBehaviour {
 
+    public AudioClip victoryClip, loseClip;
+    bool matchEnd = false;
+
 	public int levelToUnlock;
     public int nextLevel;
     bool endGame = false;
@@ -95,7 +98,7 @@ public class GameCondition : MonoBehaviour {
 	{
 
        // Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
 		//Application.LoadLevel (0);
 	}
 
@@ -131,33 +134,38 @@ public class GameCondition : MonoBehaviour {
 
 	public void UpdatePlayer(int players)
     {
-        //Debug.Log ("Updatuje" + players);
-        timeToCheck = 0;
-		humanCountText.text = players + "/" + victoryPopulation;
-
-		/*if (players > victoryPopulation) 
-		{
-            WinMatch();
-			//Debug.Log("Victory");
-		}*/
-
-        AudioSoundBeeper(players);
-
-
-        if (players == 0)
+        if (matchEnd == false)
         {
-            if (meatStock.EmptyStock())
+            //Debug.Log ("Updatuje" + players);
+            timeToCheck = 0;
+            humanCountText.text = players + "/" + victoryPopulation;
+
+            /*if (players > victoryPopulation) 
             {
-                //Time.timeScale = 0;
-                victoryPanel.SetActive(true);
-                victoryText.text = "You lose";
-                // PlayerPrefs.SetInt("level" + levelToUnlock, 2);
+                WinMatch();
+                //Debug.Log("Victory");
+            }*/
 
-               // endGame = true;
+            // AudioSoundBeeper(players);
+
+
+            if (players == 0)
+            {
+                if (meatStock.EmptyStock())
+                {
+
+                    audioSource.PlayOneShot(loseClip);
+                    //Time.timeScale = 0;
+                    victoryPanel.SetActive(true);
+                    victoryText.text = "You lose";
+                    // PlayerPrefs.SetInt("level" + levelToUnlock, 2);
+                    matchEnd = true;
+
+                    // endGame = true;
+                }
+
             }
-
         }
-
 	}
 
 
@@ -169,16 +177,21 @@ public class GameCondition : MonoBehaviour {
 	// Update is called once per frame
     void WinMatch()
     {
-        //Time.timeScale = 0;
-        victoryPanel.SetActive(true);
-        victoryText.text = "Victory";
-        PlayerPrefs.SetInt("level" + levelToUnlock, 2);
-
-       // endGame = true;
-
-        if (nextLevel < 1000)
+        if (matchEnd == false)
         {
-            PlayerPrefs.SetInt("level" + nextLevel, 1);
+            matchEnd = true;
+             audioSource.PlayOneShot(victoryClip);
+            //Time.timeScale = 0;
+            victoryPanel.SetActive(true);
+            victoryText.text = "Victory";
+            PlayerPrefs.SetInt("level" + levelToUnlock, 2);
+
+            // endGame = true;
+
+            if (nextLevel < 1000)
+            {
+                PlayerPrefs.SetInt("level" + nextLevel, 1);
+            }
         }
 
         //Debug.Log("WYGRYWAM MECZ");

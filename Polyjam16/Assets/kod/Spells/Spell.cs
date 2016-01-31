@@ -6,6 +6,8 @@ public abstract class Spell : MonoBehaviour {
 
 	public string playerTagToCompare = "Player";
 	public string compTagToCompare = "GameController";
+    public AudioClip myAudioClip;
+    AudioSource audioSource;
 
 	public static Image mouseCursor;
 	public Sprite cursorSprite;
@@ -19,6 +21,11 @@ public abstract class Spell : MonoBehaviour {
 
 	Vector3 helpVec;
 
+    void Start()
+    {
+        audioSource = this.GetComponent<AudioSource>();
+    }
+
 	public virtual void ActivateSpel()
 	{
 		//Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
@@ -31,8 +38,10 @@ public abstract class Spell : MonoBehaviour {
 
 	public virtual void RunSpell()
 	{
-		//Cursor.SetCursor(null, hotSpot, cursorMode);
-		helpVec = Input.mousePosition + new Vector3 (0f, 0f, 10f); 
+        audioSource.PlayOneShot(myAudioClip);
+
+           //Cursor.SetCursor(null, hotSpot, cursorMode);
+           helpVec = Input.mousePosition + new Vector3 (0f, 0f, 10f); 
 
 		helpVec = Camera.main.ScreenToWorldPoint (helpVec);
 		helpVec.z = 0;

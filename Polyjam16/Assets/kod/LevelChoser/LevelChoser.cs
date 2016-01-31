@@ -15,9 +15,9 @@ public class LevelChoser : MonoBehaviour {
 
 
 		Debug.Log ("Robie");
-		InitPlayerPrefs ();
-		DisableAllButtons ();
-		SetButtonView ();
+		//InitPlayerPrefs ();
+		//DisableAllButtons ();
+	//	SetButtonView ();
 	
 	}
 
